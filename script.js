@@ -105,11 +105,12 @@ const start = () => {
   if (startTime) return;
 
   let count = 3;
+ 
   countdownOverlay.style.display = "flex";
 
   const startCountdown = setInterval(() => {
-    console.log(startCountdown);
-    countdownOverlay.innerHTML = '<h1>${count}</h1>';
+    // console.log(startCountdown);
+    countdownOverlay.innerHTML = `<h1>${count}</h1>`;
     console.log(countdownOverlay);
     // finished timer
     if (count == 0) {
@@ -135,6 +136,7 @@ displayHistory();
 setInterval(() => {
   const currentTime = new Date().getTime();
   const timeSpent = (currentTime - startTime) / 1000;
+  // console.log(timeSpent);
 
 
   document.getElementById("show-time").innerHTML = `${startTime ? timeSpent : 0} seconds`;
