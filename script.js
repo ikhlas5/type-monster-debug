@@ -23,7 +23,7 @@ fetch("./texts.json")
 // checks the user typed character and displays accordingly
 const typeController = (e) => {
   const newLetter = e.key;
-
+  // console.log(newLetter);
   // Handle backspace press
   if (newLetter == "Backspace") {
     userText = userText.slice(0, userText.length - 1);
@@ -111,16 +111,18 @@ const start = () => {
   const startCountdown = setInterval(() => {
     // console.log(startCountdown);
     countdownOverlay.innerHTML = `<h1>${count}</h1>`;
-    console.log(countdownOverlay);
+    // console.log(countdownOverlay);
     // finished timer
-    if (count == 0) {
+    if (count == -1) {
       // -------------- START TYPING -----------------
       document.addEventListener("keydown", typeController);
       countdownOverlay.style.display = "flex";
+      countdownOverlay.style.display = "none";
       display.classList.remove("inactive");
 
       clearInterval(startCountdown);
       startTime = new Date().getTime();
+      console.log(startTime);
     }
     count--;
   }, 1000);
@@ -135,6 +137,7 @@ displayHistory();
 // Show typing time spent
 setInterval(() => {
   const currentTime = new Date().getTime();
+  //  const startTime = new Date().getTime();
   const timeSpent = (currentTime - startTime) / 1000;
   // console.log(timeSpent);
 
