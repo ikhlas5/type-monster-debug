@@ -10,7 +10,6 @@ function addHistory(questionText, timeTaken, errorCount) {
   <p>You took: <span class="bold">${timeTaken}</span> seconds</p>
   <p>You made <span class="bold red">${errorCount}</span> mistakes</p>
   </div>
- 
 
   `;
 
